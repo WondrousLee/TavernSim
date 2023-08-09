@@ -4,28 +4,26 @@ import java.lang.reflect.Array;
 import java.util.*;
 
 public class Order {
-    int price;
+    public int priceMin;
+    public int priceMax;
     int neededMaterials;
     String orderName = "Beer"; //static for now
 
     Random rand = new Random();
-    int upperbound = 100; //upperbound will not be the same for every drink
+    //upperbound will not be the same for every drink
     //if we consider that probably not every drink needs as much resources
     //the upperbound will scale down on the resource number?
 
+    public void orderPlaced(){ //ugly stuff. remove it later
+        int priceMin = rand.nextInt(20 - 10) + 10;
+        int priceInterval = rand.nextInt(10 - 5) + 5;
+        int priceMax = priceMin+priceInterval;
+        int neededMaterials = 10;
+        //for now not used. it's probably not gonna be random int (neededMaterials) but a
+        //table with information about each drink (for example beer: neededMaterials: 10)
+        //While price is depending on customer so bartering and random number etc.
 
-    ArrayList<Integer> randomNumbers = new ArrayList<Integer>();
-
-    void orderPlaced(){ //ugly stuff. remove it later
-        for (int i = 0; i < 2; i++){
-            int int_random = rand.nextInt(upperbound);
-            randomNumbers.add(int_random);
-        }
-
-        price = randomNumbers.get(0);
-        neededMaterials = randomNumbers.get(1);
-        System.out.println("price is:" + price);
-
+        System.out.println("price is:" + priceMin + "-" + priceMax);
         System.out.println("required materials:" + neededMaterials);
 
     }

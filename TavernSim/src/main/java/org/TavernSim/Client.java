@@ -8,15 +8,17 @@ public class Client {
     String MessageGetMe = ", can you get me: ";
     String MessageBargainSucceeded = "I can deal with that.";
     String MessageBargainFailed = "Sorry no can do.";
-    int clientInterval = 20;
+    String MessageBargainEndOnFail = "I can't deal with you!";
 
-    void ClientComes() {
+    int ClientComes() {
         System.out.println("YOU: What can i get you?");
         Order newOrder = new Order();
         newOrder.orderPlaced();
         System.out.println(name + ":" + MessageHi + name + MessageGetMe + newOrder.orderName);
-    }
 
+        return newOrder.priceMin; //nah
+        
+    }
 
     
     public void Bargain() {
@@ -27,7 +29,7 @@ public class Client {
         do { //Get this into other function tip by Zaszczynski, should prevent leaks?
             int playerProposal = Integer.parseInt(userInput.nextLine());
 
-            if (playerProposal >= clientInterval) {
+            if (playerProposal >= Order.priceMin || playerProposal <= Order.priceMax) { //ask someone how to access priceMin or priceMax from Order
                 System.out.println(MessageBargainSucceeded);
                 finishBargain = true;
             } else {
@@ -36,7 +38,7 @@ public class Client {
 
                 if (bargainAttempts > 3){
                     System.out.println("-=| Bargain Failed! |=-");
-                    System.out.println("I can't deal with you!");
+                    System.out.println(MessageBargainEndOnFail);
                     break;
                 }
                 else {
