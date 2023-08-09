@@ -16,13 +16,15 @@ public class Client {
         newOrder.orderPlaced();
         System.out.println(name + ":" + MessageHi + name + MessageGetMe + newOrder.orderName);
     }
+
+
     
     public void Bargain() {
         Scanner userInput = new Scanner(System.in);
 
         int bargainAttempts = 0;
-        boolean finishBargain = true;
-        do { //Get this into other function tip by Zaszczynski, should prevent leaks? help?
+        boolean finishBargain;
+        do { //Get this into other function tip by Zaszczynski, should prevent leaks?
             int playerProposal = Integer.parseInt(userInput.nextLine());
 
             if (playerProposal >= clientInterval) {
@@ -37,8 +39,8 @@ public class Client {
                     System.out.println("I can't deal with you!");
                     break;
                 }
-                else{
-                    System.out.println(MessageBargainFailed);
+                else {
+                    System.out.println(MessageBargainFailed); //this should later print out if we want lower value or higher.
                 }
             }
         }
