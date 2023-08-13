@@ -4,7 +4,9 @@ import java.util.*;
 public class Order {
     int neededMaterials;
 
-    String orderName = "Beer"; //static for now
+
+    //This does not update the lines, it's kinda static. Fix for later (except for names and order)
+    String orderName = "Beer"; //static for now, later this will be table of information with neededMaterials and orderName etc.
     DialogSet name = new DialogSet(
             "Bob",
             "Mikkeys",
@@ -26,7 +28,7 @@ public class Order {
             " will you get me: "
     );
 
-    //Bargain Related Dialogs, later there will be more variations etc.
+    //Bargain Related Dialogs
     DialogSet ClientBargainTooExpensive = new DialogSet( //0
             " This price is outrageous! ",
             " No way! This price is too much even for nobles! ",
@@ -62,7 +64,7 @@ public class Order {
 
     public void orderPlaced(){
         System.out.println("YOU: What can i get you?");
-        System.out.println(name + ":" + MessageHi + name + MessageGetMe + orderName);
+        System.out.println(name.getRandomDialog() + ":" + MessageHi.getRandomDialog() + name.getRandomDialog() + MessageGetMe.getRandomDialog() + orderName);
 
         int priceMin = rand.nextInt(20 - 10) + 10;
         int priceInterval = rand.nextInt(10 - 5) + 5;
@@ -98,7 +100,6 @@ public class Order {
                     System.out.println("-~= Bargain Failed! =~-");
                     System.out.println(MessageBargainEndOnFail);
                     break;
-
                 }
                 else {
                     if (!(statusNow == lastStatus)){
@@ -106,15 +107,15 @@ public class Order {
                         bargainAttempts = 0;
                     }
                     if (playerProposal >= priceMax+10) {
-                        System.out.println(ClientBargainTooExpensive);
+                        System.out.println(ClientBargainTooExpensive.getRandomDialog());
                         statusNow = 0;
                     }
                     if (playerProposal > priceMax+5 && playerProposal < priceMax+10){
-                        System.out.println(ClientBargainClose);
+                        System.out.println(ClientBargainClose.getRandomDialog());
                         statusNow = 1;
                     }
                     if (playerProposal > priceMax && playerProposal <= priceMax + 5) {
-                        System.out.println(ClientBargainCloser);
+                        System.out.println(ClientBargainCloser.getRandomDialog());
                         statusNow = 2;
                     }
                     if (playerProposal < priceMin) {
