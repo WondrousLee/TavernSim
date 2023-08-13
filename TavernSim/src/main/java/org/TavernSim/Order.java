@@ -4,20 +4,55 @@ import java.util.*;
 public class Order {
     int neededMaterials;
 
-
     String orderName = "Beer"; //static for now
-    String name = "Bob";
-    String MessageHi = "Hi! My names is ";
-    String MessageGetMe = ", can you get me: ";
-    String MessageBargainFailed = "Sorry no can do."; //delete it later
+    DialogSet name = new DialogSet(
+            "Bob",
+            "Mikkeys",
+            "Zerg",
+            "Del-son",
+            "Deckard",
+            "Manuel",
+            "Pepers",
+            "hiky"
+    );
+    DialogSet MessageHi = new DialogSet(
+            "Hello there! My name is ",
+            "Hey, how's it going? My name is ",
+            "Welcome! my name is "
+    );
+    DialogSet MessageGetMe = new DialogSet(
+            " can you get me: ",
+            " i want a: ",
+            " will you get me: "
+    );
 
     //Bargain Related Dialogs, later there will be more variations etc.
-    String ClientBargainTooExpensive = "I will not pay that amount of money for this drink! This price is outrageous!"; //0
-    String ClientBargainClose = "Can you give me lower price?"; //1
-    String ClientBargainCloser = "This price is almost ideal, can you lower it a little bit more tho?" ; //2
-    String ClientTooLowPrice = "I can't give you so little for that drink!"; //3
-    String MessageBargainEndOnFail = "I can't deal with you!";
-    String MessageBargainSucceeded = "Yeah, it seems fair. There you go.";
+    DialogSet ClientBargainTooExpensive = new DialogSet( //0
+            " This price is outrageous! ",
+            " No way! This price is too much even for nobles! ",
+            " Huuh? Are you delusional? "
+    );
+    DialogSet ClientBargainClose = new DialogSet( //1
+            " I can't pay that much, can you lower the price? ",
+            " No way, can you lower the price? ",
+            " This may not be the price i'm willing to pay, can you lower it? "
+    );
+    DialogSet ClientBargainCloser = new DialogSet( //2
+            " Almost ideal price, can you lower it a little bit? ",
+            " I'm almost willing to pay, but can you go lower? ",
+            " This is close to what i'm willing to pay. "
+    );
+    String ClientTooLowPrice = "*You think to yourself that this price is too low. You won't profit at all!*"; //3
+    DialogSet MessageBargainEndOnFail = new DialogSet(
+            " I'm giving this pub a one star on magician network! ",
+            " Fuck you, i'm not coming back! ",
+            " Haah, this bar is ran by scammers "
+    );
+    DialogSet MessageBargainSucceeded = new DialogSet(
+            " Thank you very much! ",
+            " Yeah, this seems fair. There you go! ",
+            " Sure, i'm willing to pay for that, there you go. "
+    );
 
 
 
@@ -40,9 +75,15 @@ public class Order {
         System.out.println("price is:" + priceMin + "-" + priceMax);
         System.out.println("required materials:" + neededMaterials);
 
+
         Scanner userInput = new Scanner(System.in);
         int bargainAttempts = 0;
         boolean finishBargain;
+
+        //for resetting fail counter every time that user gets closer to intended price
+        int statusNow = 0;
+        int lastStatus = 0;
+
         do { //Get this into other method, tip by Zaszczynski, should prevent leaks and make code a lil cleaner
             int playerProposal = Integer.parseInt(userInput.nextLine());
 
@@ -54,15 +95,47 @@ public class Order {
                 bargainAttempts++;
 
                 if (bargainAttempts > 3){
-                    System.out.println("-=| Bargain Failed! |=-"); //After changing status from "lower" to for example "just little bit lower" reset fail count
+                    System.out.println("-~= Bargain Failed! =~-");
                     System.out.println(MessageBargainEndOnFail);
                     break;
+
                 }
                 else {
-                    System.out.println(MessageBargainFailed); //this should later print out if we want lower value or higher.
+                    if (!(statusNow == lastStatus)){
+                        lastStatus = statusNow;
+                        bargainAttempts = 0;
+                    }
+                    if (playerProposal >= priceMax+10) {
+                        System.out.println(ClientBargainTooExpensive);
+                        statusNow = 0;
+                    }
+                    if (playerProposal > priceMax+5 && playerProposal < priceMax+10){
+                        System.out.println(ClientBargainClose);
+                        statusNow = 1;
+                    }
+                    if (playerProposal > priceMax && playerProposal <= priceMax + 5) {
+                        System.out.println(ClientBargainCloser);
+                        statusNow = 2;
+                    }
+                    if (playerProposal < priceMin) {
+                        System.out.println(ClientTooLowPrice);
+                        statusNow = 3;
+                    }
+                    //debug
+//                    System.out.println("status now:" + statusNow);
+//                    System.out.println("status before:" +lastStatus);
+//                    System.out.println("bargain attempts:" +bargainAttempts);
+
+
+
+                    //Yes I know that user can just jump between 2 statuses and reset how many times they want to
+                    //this will be addressed in the future.
+                    //probably with some type of reputation system?
                 }
             }
         }
         while(!finishBargain);
+
+        //return finishedTrade //boolean to finish trade roll for event and begin another bargain.
     }
 }
