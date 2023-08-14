@@ -1,26 +1,26 @@
 package org.TavernSim;
 
-import org.TavernSim.UiManagement.ConsoleUiManager;
-import org.TavernSim.UiManagement.UiManagement;
+import org.TavernSim.UiManagement.Displayable;
 
 public class Dialogs {
+    static GameState gameState = GameState.Instance();
     
     public class MainMenu {
-        static String WelcomeMessage = "------------------- Hello and welcome to Tavern! -------------------";
-        static String[] MenuSelection = {
+        static Displayable WelcomeMessage = new Displayable("------------------- Hello and welcome to Tavern! -------------------");
+        static Displayable MenuSelection = new Displayable(
             "Tavern Player UI:",
             "1: Get new customer in line",
             "2: Close tavern for the day",
-            "3: End game"
-        };
+            "3: End game" 
+        );
 
-        static String DayClock(int dayNumber) {
-            return "Day " + dayNumber + " finished";
+        static Displayable DayClock(int dayNumber) {
+            return new Displayable("Day " + dayNumber + " finished");
         }
     }   
 
     public class OrderDialogs {
-        static String ClientTooLowPrice = "*You think to yourself that this price is too low. You won't profit at all!*";
+        static Displayable ClientTooLowPrice = new Displayable("*You think to yourself that this price is too low. You won't profit at all!*");
         static DialogSet Names = new DialogSet(
                 "Bob",
                 "Mikkeys",
@@ -69,23 +69,23 @@ public class Dialogs {
             " Sure, i'm willing to pay for that, there you go. "
         );
 
-        static String[] Introduction(String orderName) {
-            return new String[] {
+        static Displayable Introduction(String orderName) {
+            return new Displayable(
                 "YOU: What can i get you?",
-                Names.getRandomDialog() + ": " + MessageHi.getRandomDialog() + " " + Names.getRandomDialog() + " " + MessageGetMe.getRandomDialog() + " " + orderName
-            };
+                Names.getRandomDialog().message + ": " + MessageHi.getRandomDialog().message + " " + Names.getRandomDialog().message + " " + MessageGetMe.getRandomDialog().message + " " + orderName
+            );
         };
         
-        static String[] PriceAndMaterials(int priceMin, int priceMax, int materialsRequired) {
-            return new String[] {
+        static Displayable PriceAndMaterials(int priceMin, int priceMax, int materialsRequired) {
+            return new Displayable(
                 "price is:" + priceMin + "-" + priceMax,
                 "required materials:" + materialsRequired
-            };
+            );
         };
 
-        static String[] BargainFailed = {
+        static Displayable BargainFailed = new Displayable(
                 "-~= Bargain Failed! =~-",
-                MessageBargainEndOnFail.getRandomDialog()
-        };
+                MessageBargainEndOnFail.getRandomDialog().message
+        );
     }
 }

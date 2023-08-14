@@ -1,28 +1,26 @@
 package org.TavernSim;
-import org.TavernSim.UiManagement.ConsoleUiManager;
-import org.TavernSim.UiManagement.UiManagement;
 
 public class Main {
     public static void main(String[] args) {
-        UiManagement uiManager = new ConsoleUiManager();
+        GameState gameState = GameState.Instance();
         Tavern tavern = new Tavern();
         Client client = new Client();
         
-        uiManager.DisplayMessage(Dialogs.MainMenu.WelcomeMessage);
+        Dialogs.MainMenu.WelcomeMessage.Display();
         boolean endgame = false;
         int openDay = 0; //later this will scale other things.
 
         do {
-            uiManager.DisplayMessage(Dialogs.MainMenu.MenuSelection);
-            switch (uiManager.GetIntInput()) {
+            Dialogs.MainMenu.MenuSelection.Display();
+            switch (gameState.uiManager.GetIntInput()) {
                 case 1 -> {
-                    Order newOrder = new Order(tavern, client, uiManager);
+                    Order newOrder = new Order(tavern, client);
                     newOrder.orderPlaced();
                     newOrder.finalizeOrder();
                 }
                 case 2 -> {
                     openDay++;
-                    uiManager.DisplayMessage(Dialogs.MainMenu.DayClock(openDay));
+                    Dialogs.MainMenu.DayClock(openDay).Display();
                 }
                 case 3 -> {
                     endgame = true;
@@ -31,6 +29,6 @@ public class Main {
             }
         } while(!endgame);
 
-        uiManager.Dispose();
+        gameState.Dispose();
     }
 }

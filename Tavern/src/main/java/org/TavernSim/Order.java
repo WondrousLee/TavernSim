@@ -1,7 +1,6 @@
 package org.TavernSim;
 import java.util.Random;
 
-import org.TavernSim.UiManagement.UiManagement;
 
 public class Order {
     int neededMaterials;
@@ -16,12 +15,11 @@ public class Order {
 
     private Tavern tavern;
     private Client client;
-    private UiManagement uiManager;
+    GameState gameState = GameState.Instance();
 
-    public Order(Tavern tavern, Client client, UiManagement uiManager) {
+    public Order(Tavern tavern, Client client) {
         this.tavern = tavern;
         this.client = client;
-        this.uiManager = uiManager;
     }
 
     public void orderPlaced(){
@@ -32,8 +30,8 @@ public class Order {
         //table with information about each drink (for example beer: neededMaterials: 10)
         //While price is depending on customer so bartering and random number etc.
 
-        uiManager.DisplayMessage(Dialogs.OrderDialogs.Introduction(orderName));
-        uiManager.DisplayMessage(Dialogs.OrderDialogs.PriceAndMaterials(priceMin, priceMax, priceMax));
+        Dialogs.OrderDialogs.Introduction(orderName).Display();
+        Dialogs.OrderDialogs.PriceAndMaterials(priceMin, priceMax, priceMax).Display();
 
         int bargainAttempts = 0;
         boolean finishBargain;
@@ -43,10 +41,10 @@ public class Order {
         int lastStatus = 0;
 
         do { //Get this into other method, tip by Zaszczynski, should prevent leaks and make code a lil cleaner
-            int playerProposal = uiManager.GetIntInput();
+            int playerProposal = gameState.uiManager.GetIntInput();
 
             if (playerProposal >= priceMin && playerProposal <= priceMax) {
-                uiManager.DisplayMessage(Dialogs.OrderDialogs.MessageBargainSucceeded.getRandomDialog());
+                Dialogs.OrderDialogs.MessageBargainSucceeded.getRandomDialog().Display();
                 orderValue = playerProposal;
                 finishBargain = true;
 
@@ -55,7 +53,7 @@ public class Order {
                 bargainAttempts++;
 
                 if (bargainAttempts > 3){
-                    uiManager.DisplayMessage(Dialogs.OrderDialogs.BargainFailed);
+                    Dialogs.OrderDialogs.BargainFailed.Display();
                     break;
                 }
                 else {
@@ -64,22 +62,22 @@ public class Order {
                         bargainAttempts = 0;
                     }
                     if (playerProposal >= priceMax+10) {
-                        uiManager.DisplayMessage(Dialogs.OrderDialogs.MessageBargainSucceeded.getRandomDialog());
-                        System.out.println(Dialogs.OrderDialogs.ClientBargainTooExpensive.getRandomDialog());
+                        Dialogs.OrderDialogs.MessageBargainSucceeded.getRandomDialog().Display();
+                        Dialogs.OrderDialogs.ClientBargainTooExpensive.getRandomDialog().Display();
                         statusNow = 0;
                     }
                     if (playerProposal > priceMax+5 && playerProposal < priceMax+10){
-                        uiManager.DisplayMessage(Dialogs.OrderDialogs.MessageBargainSucceeded.getRandomDialog());
-                        System.out.println(Dialogs.OrderDialogs.ClientBargainClose.getRandomDialog());
+                        Dialogs.OrderDialogs.MessageBargainSucceeded.getRandomDialog().Display();
+                        Dialogs.OrderDialogs.ClientBargainClose.getRandomDialog().Display();
                         statusNow = 1;
                     }
                     if (playerProposal > priceMax && playerProposal <= priceMax + 5) {
-                        uiManager.DisplayMessage(Dialogs.OrderDialogs.MessageBargainSucceeded.getRandomDialog());
-                        System.out.println(Dialogs.OrderDialogs.ClientBargainCloser.getRandomDialog());
+                        Dialogs.OrderDialogs.MessageBargainSucceeded.getRandomDialog().Display();
+                        Dialogs.OrderDialogs.ClientBargainCloser.getRandomDialog().Display();
                         statusNow = 2;
                     }
                     if (playerProposal < priceMin) {
-                        uiManager.DisplayMessage(Dialogs.OrderDialogs.ClientTooLowPrice);
+                        Dialogs.OrderDialogs.ClientTooLowPrice.Display();
                         statusNow = 3;
                     }
                 }
