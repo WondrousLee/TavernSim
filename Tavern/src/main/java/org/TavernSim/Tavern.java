@@ -1,6 +1,13 @@
 package org.TavernSim;
 
 public class Tavern {
-    int dublons = 0; //money
-    public int materials = 100; //materials needed for drinks
+    public static int dublons = 0; //money
+
+    public boolean hasProduct(String name) {
+        return true;
+    }
+
+    public void sell(int amount) {
+        dublons += amount;
+    }
 }
