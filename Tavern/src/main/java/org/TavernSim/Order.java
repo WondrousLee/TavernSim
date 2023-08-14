@@ -1,4 +1,5 @@
 package org.TavernSim;
+import org.TavernSim.Dialogs.OrderDialogs;
 import java.util.Random;
 
 
@@ -30,8 +31,8 @@ public class Order {
         //table with information about each drink (for example beer: neededMaterials: 10)
         //While price is depending on customer so bartering and random number etc.
 
-        Dialogs.OrderDialogs.Introduction(orderName).Display();
-        Dialogs.OrderDialogs.PriceAndMaterials(priceMin, priceMax, priceMax).Display();
+        OrderDialogs.Introduction(orderName).Display();
+        OrderDialogs.PriceAndMaterials(priceMin, priceMax, priceMax).Display();
 
         int bargainAttempts = 0;
         boolean finishBargain;
@@ -44,7 +45,7 @@ public class Order {
             int playerProposal = gameState.uiManager.GetIntInput();
 
             if (playerProposal >= priceMin && playerProposal <= priceMax) {
-                Dialogs.OrderDialogs.MessageBargainSucceeded.getRandomDialog().Display();
+                OrderDialogs.MessageBargainSucceeded.getRandomDialog().Display();
                 orderValue = playerProposal;
                 finishBargain = true;
 
@@ -53,7 +54,7 @@ public class Order {
                 bargainAttempts++;
 
                 if (bargainAttempts > 3){
-                    Dialogs.OrderDialogs.BargainFailed.Display();
+                    OrderDialogs.BargainFailed.Display();
                     break;
                 }
                 else {
@@ -62,19 +63,19 @@ public class Order {
                         bargainAttempts = 0;
                     }
                     if (playerProposal >= priceMax+10) {
-                        Dialogs.OrderDialogs.ClientBargainTooExpensive.getRandomDialog().Display();
+                        OrderDialogs.ClientBargainTooExpensive.getRandomDialog().Display();
                         statusNow = 0;
                     }
                     if (playerProposal > priceMax+5 && playerProposal < priceMax+10){
-                        Dialogs.OrderDialogs.ClientBargainClose.getRandomDialog().Display();
+                        OrderDialogs.ClientBargainClose.getRandomDialog().Display();
                         statusNow = 1;
                     }
                     if (playerProposal > priceMax && playerProposal <= priceMax + 5) {
-                        Dialogs.OrderDialogs.ClientBargainCloser.getRandomDialog().Display();
+                        OrderDialogs.ClientBargainCloser.getRandomDialog().Display();
                         statusNow = 2;
                     }
                     if (playerProposal < priceMin) {
-                        Dialogs.OrderDialogs.ClientTooLowPrice.Display();
+                        OrderDialogs.ClientTooLowPrice.Display();
                         statusNow = 3;
                     }
                 }
