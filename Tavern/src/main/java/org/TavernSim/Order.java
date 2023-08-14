@@ -97,7 +97,7 @@ public class Order {
             }
         }
         while(!finishBargain);
-        userInput.close(); //Destroying userInput prevents memory leaks
+        // userInput.close(); //Destroying userInput prevents memory leaks
         //return finishedTrade //boolean to finish trade roll for event and begin another bargain.
     }
 
