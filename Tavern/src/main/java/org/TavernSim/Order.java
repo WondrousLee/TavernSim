@@ -9,54 +9,7 @@ public class Order {
 
     //This does not update the lines, it's kinda static. Fix for later (except for names and order)
     String orderName = "Beer"; //static for now, later this will be table of information with neededMaterials and orderName etc.
-    DialogSet name = new DialogSet(
-            "Bob",
-            "Mikkeys",
-            "Zerg",
-            "Del-son",
-            "Deckard",
-            "Manuel",
-            "Pepers",
-            "hiky"
-    );
-    DialogSet MessageHi = new DialogSet(
-            "Hello there! My name is ",
-            "Hey, how's it going? My name is ",
-            "Welcome! my name is "
-    );
-    DialogSet MessageGetMe = new DialogSet(
-            " can you get me: ",
-            " i want a: ",
-            " will you get me: "
-    );
-
-    //Bargain Related Dialogs
-    DialogSet ClientBargainTooExpensive = new DialogSet( //0
-            " This price is outrageous! ",
-            " No way! This price is too much even for nobles! ",
-            " Huuh? Are you delusional? "
-    );
-    DialogSet ClientBargainClose = new DialogSet( //1
-            " I can't pay that much, can you lower the price? ",
-            " No way, can you lower the price? ",
-            " This may not be the price i'm willing to pay, can you lower it? "
-    );
-    DialogSet ClientBargainCloser = new DialogSet( //2
-            " Almost ideal price, can you lower it a little bit? ",
-            " I'm almost willing to pay, but can you go lower? ",
-            " This is close to what i'm willing to pay. "
-    );
     String ClientTooLowPrice = "*You think to yourself that this price is too low. You won't profit at all!*"; //3
-    DialogSet MessageBargainEndOnFail = new DialogSet(
-            " I'm giving this pub a one star on magician network! ",
-            " Fuck you, i'm not coming back! ",
-            " Haah, this bar is ran by scammers "
-    );
-    DialogSet MessageBargainSucceeded = new DialogSet(
-            " Thank you very much! ",
-            " Yeah, this seems fair. There you go! ",
-            " Sure, i'm willing to pay for that, there you go. "
-    );
 
 
     Random rand = new Random();
@@ -73,7 +26,7 @@ public class Order {
 
     public void orderPlaced(){
         System.out.println("YOU: What can i get you?");
-        System.out.println(name.getRandomDialog() + ":" + MessageHi.getRandomDialog() + name.getRandomDialog() + MessageGetMe.getRandomDialog() + orderName);
+        System.out.println(Dialogs.name.getRandomDialog() + ":" + Dialogs.MessageHi.getRandomDialog() + Dialogs.name.getRandomDialog() + Dialogs.MessageGetMe.getRandomDialog() + orderName);
         int priceMin = rand.nextInt(20 - 10) + 10;
         int priceInterval = rand.nextInt(10 - 5) + 5;
         int priceMax = priceMin+priceInterval;
@@ -96,7 +49,7 @@ public class Order {
             int playerProposal = Integer.parseInt(userInput.nextLine());
 
             if (playerProposal >= priceMin && playerProposal <= priceMax) {
-                System.out.println(MessageBargainSucceeded.getRandomDialog());
+                System.out.println(Dialogs.MessageBargainSucceeded.getRandomDialog());
                 orderValue = playerProposal;
                 finishBargain = true;
 
@@ -106,7 +59,7 @@ public class Order {
 
                 if (bargainAttempts > 3){
                     System.out.println("-~= Bargain Failed! =~-");
-                    System.out.println(MessageBargainEndOnFail.getRandomDialog());
+                    System.out.println(Dialogs.MessageBargainEndOnFail.getRandomDialog());
                     break;
                 }
                 else {
@@ -115,15 +68,15 @@ public class Order {
                         bargainAttempts = 0;
                     }
                     if (playerProposal >= priceMax+10) {
-                        System.out.println(ClientBargainTooExpensive.getRandomDialog());
+                        System.out.println(Dialogs.ClientBargainTooExpensive.getRandomDialog());
                         statusNow = 0;
                     }
                     if (playerProposal > priceMax+5 && playerProposal < priceMax+10){
-                        System.out.println(ClientBargainClose.getRandomDialog());
+                        System.out.println(Dialogs.ClientBargainClose.getRandomDialog());
                         statusNow = 1;
                     }
                     if (playerProposal > priceMax && playerProposal <= priceMax + 5) {
-                        System.out.println(ClientBargainCloser.getRandomDialog());
+                        System.out.println(Dialogs.ClientBargainCloser.getRandomDialog());
                         statusNow = 2;
                     }
                     if (playerProposal < priceMin) {
@@ -148,7 +101,7 @@ public class Order {
         //return finishedTrade //boolean to finish trade roll for event and begin another bargain.
     }
 
-    public int finalizeOrder(){
+    public void finalizeOrder(){
         if (client.canAfford(orderValue) && tavern.hasProduct("Beer")) {
             client.spendMoney(orderValue);
             tavern.sell(orderValue);
