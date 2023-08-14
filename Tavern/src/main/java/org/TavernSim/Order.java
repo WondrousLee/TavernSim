@@ -62,17 +62,14 @@ public class Order {
                         bargainAttempts = 0;
                     }
                     if (playerProposal >= priceMax+10) {
-                        Dialogs.OrderDialogs.MessageBargainSucceeded.getRandomDialog().Display();
                         Dialogs.OrderDialogs.ClientBargainTooExpensive.getRandomDialog().Display();
                         statusNow = 0;
                     }
                     if (playerProposal > priceMax+5 && playerProposal < priceMax+10){
-                        Dialogs.OrderDialogs.MessageBargainSucceeded.getRandomDialog().Display();
                         Dialogs.OrderDialogs.ClientBargainClose.getRandomDialog().Display();
                         statusNow = 1;
                     }
                     if (playerProposal > priceMax && playerProposal <= priceMax + 5) {
-                        Dialogs.OrderDialogs.MessageBargainSucceeded.getRandomDialog().Display();
                         Dialogs.OrderDialogs.ClientBargainCloser.getRandomDialog().Display();
                         statusNow = 2;
                     }
