@@ -1,2 +1,2 @@
 # TavernSim
-Very simple Tavern Simulator system written in Java
+    Very simple Tavern Simulator system written in C++
