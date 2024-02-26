@@ -7,22 +7,29 @@ using namespace std;
 
 #include "../GameState.cpp"
 
-class Displayable{
-    public:
-        string message;
-        stringstream ss;
+class Displayable
+{
+private:
+    string message;
+    stringstream ss;
 
-        Displayable(vector<string> &messages){
-            for (string message : messages){
-                ss << message;
-            }
+public:
+    Displayable(vector<string> &messages)
+    {
+        for (string message : messages)
+        {
+            ss << message;
         }
+    }
+    Displayable(string inputMessage)
+    {
+        message = inputMessage;
+    }
+    void Display()
+    {
+        gameState.uiPointer->DisplayMessage(message);
+    }
 
-        void Display() {
-            gameState.uiPointer -> DisplayMessage(message);
-        }
-
-
-    private:
-        GameState gameState;
- };
+private:
+    GameState gameState;
+};

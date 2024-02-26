@@ -11,4 +11,10 @@ class Dialogs{
             "2. Close tavern for the day",
             "3. Close the game"
         };
+        vector<string> drinkNames = {
+            "Dragons Poof",
+            "Duckinks",
+            "Fire Thrower",
+            "Yeppers"
+        };
 };
