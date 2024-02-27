@@ -2,23 +2,18 @@ using namespace std;
 #include <vector>
 #include <string>
 #include <sstream>
-#include <./UiManagement/Displayable.cpp>
+#include <cstdlib>
+#include "DialogSet.h"
 
-class DialogSet : public Displayable
+DialogSet::DialogSet(vector<string> &lines) : Displayable(lines)
 {
-    private:
-        vector<string> dialogLines;
-        int random;
-
-
-    public: 
-        DialogSet(vector<string> &lines) : Displayable(lines){
-            for (string line : lines){
-                dialogLines.push_back(line);
-            }
-        }
-        Displayable getRandomDialog(){
-            int randomIndex = rand() % dialogLines.size();
-            return Displayable(dialogLines[randomIndex]);
-        }
-};
+    for (string line : lines)
+    {
+        dialogLines.push_back(line);
+    }
+}
+Displayable DialogSet::getRandomDialog()
+{
+    randomIndex = rand() % dialogLines.size();
+    return Displayable(dialogLines[randomIndex]);
+}

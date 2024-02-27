@@ -8,19 +8,19 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include "GameState.cpp"
+#include "GameState.h"
 using namespace std;
 
 int main()
 {
+    // Dialogs dialogueAccess;
     GameState &gameState = GameState::Instance();
-    Dialogs dialogueAccess; //access to dialogues
     bool endgame = false;
 
     do
     {
         // Placeholder for menu selection handling
-        gameState.uiPointer->DisplayMessage(dialogueAccess.mainMenu);
+        // dialogueAccess.mainMenu();
         switch (gameState.uiPointer->GetIntInput())
         {
         case 1:

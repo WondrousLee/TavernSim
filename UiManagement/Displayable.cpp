@@ -3,33 +3,22 @@
 #include <string>
 #include <cmath>
 #include <sstream>
-using namespace std;
+#include <Displayable.h>
 
-#include "../GameState.cpp"
 
-class Displayable
-{
-private:
-    string message;
-    stringstream ss;
-
-public:
-    Displayable(vector<string> &messages)
+    Displayable::Displayable(std::vector<std::string> &messages)
     {
-        for (string message : messages)
+        for (std::string message : messages)
         {
             ss << message;
         }
+        finalMessage = ss.str();
     }
-    Displayable(string inputMessage)
+    Displayable::Displayable(std::string inputMessage)
     {
         message = inputMessage;
     }
-    void Display()
+    void Displayable::Display()
     {
-        gameState.uiPointer->DisplayMessage(message);
+        Displayable::gameState.uiPointer->DisplayMessage(finalMessage);
     }
-
-private:
-    GameState gameState;
-};

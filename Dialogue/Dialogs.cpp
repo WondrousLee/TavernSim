@@ -2,19 +2,14 @@ using namespace std;
 #include <vector>
 #include <string>
 #include <sstream>
-
-class Dialogs{
-    public:
-        vector<string> mainMenu = {
-            "Tavern Action Menu!",
-            "1: Get new customer from the line",
-            "2. Close tavern for the day",
-            "3. Close the game"
-        };
-        vector<string> drinkNames = {
-            "Dragons Poof",
-            "Duckinks",
-            "Fire Thrower",
-            "Yeppers"
-        };
+#include <DialogSet.h>
+class Dialogs
+{
+private:
+public:
+    Displayable mainMenu(vector<string> mainMenu = {
+        "[1]. Get new customer.",
+        "[2]. Close tavern for the day.",
+        "[3]. Close the game."
+    });   
 };

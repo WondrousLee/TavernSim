@@ -1,36 +1,32 @@
+#include <ConsoleUiManager.h>
 #include <iostream>
 #include <vector>
 #include <string>
 #include <cmath>
-#include "UiManager.cpp"
 
-class ConsoleUiManager : public UiManager
-{
-public:
-    void DisplayMessage(string message) const override
+    void ConsoleUiManager::DisplayMessage(std::string message) const
     {
-        cout << message;
+        std::cout << message;
     }
-    void DisplayMessage(vector<string> &messages) const override
+    void ConsoleUiManager::DisplayMessage(std::vector<std::string> &messages) const
     {
-        for (string message : messages){
-            cout << message << endl;
+        for (std::string message : messages){
+            std::cout << message << std::endl;
         }
     }
 
-    string GetRawInput() const override {
-        string userInput;
-        cin >> userInput;
+    std::string ConsoleUiManager::GetRawInput() const {
+        std::string userInput;
+        std::cin >> userInput;
         return userInput;
     }
     
-    int GetIntInput() const override {
+    int ConsoleUiManager::GetIntInput() const {
         int userInput;
-        cin >> userInput;
+        std::cin >> userInput;
         return userInput;
         //changed it because it was easier that
         //way in the c++
     }
 
-    ConsoleUiManager() {};
-};
+    ConsoleUiManager::ConsoleUiManager() {};
