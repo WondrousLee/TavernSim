@@ -6,7 +6,7 @@
 #include <vector>
 #include <string>
 #include <cmath>
-#include <UiManager.h>
+#include "./UiManager.h"
 
 
 class ConsoleUiManager : public UiManager

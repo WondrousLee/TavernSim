@@ -13,13 +13,14 @@ using namespace std;
 
 int main()
 {
-    // Dialogs dialogueAccess;
-    GameState &gameState = GameState::Instance();
+
+
+    //Not sure what is wrong, something with Instance?
+    GameState& gameState = GameState::Instance();
     bool endgame = false;
 
     do
     {
-        // Placeholder for menu selection handling
         // dialogueAccess.mainMenu();
         switch (gameState.uiPointer->GetIntInput())
         {
@@ -34,14 +35,13 @@ int main()
         case 3:
             cout << "Closing the game. Goodbye!" << std::endl;
             endgame = true;
-            return 0; // Exit the program
+            return 0;
         default:
             cout << "Invalid selection. Please try again." << std::endl;
             break;
         }
-    } while (!endgame == true);
+    } while (!endgame);
     // You might want to loop back to the menu until the game is closed
-    // This is a simple linear example and does not loop
 
     return 0;
 }

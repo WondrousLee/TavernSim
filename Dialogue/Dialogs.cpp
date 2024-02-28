@@ -3,6 +3,8 @@ using namespace std;
 #include <string>
 #include <sstream>
 #include <DialogSet.h>
+
+//Didn't test this yet.
 class Dialogs
 {
 private:
