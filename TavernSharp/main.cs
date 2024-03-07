@@ -9,6 +9,8 @@ bool endgame = false;
 
 do
 {
+
+    Dialogs.mainMenu.menuSelection.Display();
     switch (gameState.gsUiManager.GetIntInput())
     {
         case 1: //Get new order.

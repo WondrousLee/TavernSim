@@ -1,4 +1,5 @@
 using System.Text;
+using System.IO;
 using Microsoft.VisualBasic;
 
 public class Displayable
@@ -7,16 +8,25 @@ public class Displayable
     private StringBuilder resultStrings;
     private GameState gameState = GameState.Instance();
 
-    public Displayable(String[] lines = null)
+    public Displayable(String line = null, String[] lines = null)
     {
+
         StringBuilder resultStrings = new StringBuilder();
+
+        if (line != null)
+        {
+            resultStrings.AppendLine(line);
+        }
+        else if (lines != null)
+        {
             foreach (String stringInLines in lines)
             {
                 resultStrings.AppendLine(stringInLines);
             }
+        }
     }
-    //Before there was 2 different constructors, but i changed it to one constructor
-    //Because DialogSet was throwing an error: CS7036
+    //Dunno if it's the best thing i could come up with but oh well...
+    //Ill try to use it in home.
 
     public void Display()
     {

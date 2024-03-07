@@ -20,3 +20,10 @@
 /Users/useradmin/GH/TavernSim/TavernSharp/obj/Debug/net8.0/TavernSharp.dll
 /Users/useradmin/GH/TavernSim/TavernSharp/obj/Debug/net8.0/refint/TavernSharp.dll
 /Users/useradmin/GH/TavernSim/TavernSharp/obj/Debug/net8.0/TavernSharp.pdb
+/Users/useradmin/GH/TavernSim/TavernSharp/bin/Debug/net8.0/TavernSharp
+/Users/useradmin/GH/TavernSim/TavernSharp/bin/Debug/net8.0/TavernSharp.deps.json
+/Users/useradmin/GH/TavernSim/TavernSharp/bin/Debug/net8.0/TavernSharp.runtimeconfig.json
+/Users/useradmin/GH/TavernSim/TavernSharp/bin/Debug/net8.0/TavernSharp.dll
+/Users/useradmin/GH/TavernSim/TavernSharp/bin/Debug/net8.0/TavernSharp.pdb
+/Users/useradmin/GH/TavernSim/TavernSharp/obj/Debug/net8.0/TavernSharp.genruntimeconfig.cache
+/Users/useradmin/GH/TavernSim/TavernSharp/obj/Debug/net8.0/ref/TavernSharp.dll
