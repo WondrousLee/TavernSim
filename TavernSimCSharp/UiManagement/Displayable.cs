@@ -6,13 +6,15 @@ public class Displayable
 {
     //public String Message;
     private StringBuilder resultStrings;
+
+    private string[] lines;
     private GameState gameState = GameState.Instance();
 
     public Displayable(String line = null, String[] lines = null)
     {
 
         resultStrings = new StringBuilder(); //Initialized StringBuilder twice before, now it's perfect.
-
+        this.lines = lines;
         if (line != null)
         {
             resultStrings.AppendLine(line);
@@ -36,6 +38,10 @@ public class Displayable
         {
             gameState.gsUiManager.DisplayMessage(reader.ReadToEnd());
         }
+    }
+
+    public string[] Array(){
+        return lines;
     }
 
 

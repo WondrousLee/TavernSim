@@ -5,16 +5,15 @@ public class Dialogs
 
     public class mainMenu
     {
-        public static Displayable welcomeMessage = new Displayable("------------------- Hello and welcome to Tavern! -------------------");
-        public static Displayable menuSelection = new Displayable(null,
-        [
-            "Tavern Player UI:",
-            "1: Get new customer in line",
-            "2: Close tavern for the day",
-            "3: End game",
-            "Choose your next action:"
-        ]);
-           
-        
+        public static Displayable headerMenuSelection = new Displayable("\u001bTavern Player UI:\u001b");
+        public static Displayable menuSelection = new Displayable(
+        lines:
+            [
+                "1: Get new customer in line",
+                "2: Close tavern for the day",
+                "3: End game",
+            ]);
+
+
     } //Add rest of the dialogues
 }

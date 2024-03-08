@@ -6,15 +6,14 @@ public sealed class GameState
 {
     private static GameState INSTANCE;
     private GameState() {}
-
-    //UiManager = new ConsoleUiManager();
+    
     public UiManager gsUiManager = new ConsoleUiManager();
     public static GameState Instance()
     {
         if (INSTANCE == null)
         {
+            Console.Clear(); //Clear Terminal from trash at the beginning of the game.
             INSTANCE = new GameState();
-            Console.WriteLine("Game Initialized!");
         }
         return INSTANCE;
     }
