@@ -1,0 +1,14 @@
+/Users/wondrouslee/RiderProjects/TavernSimCSharp/TavernSimCSharp/obj/Debug/net8.0/TavernSimCSharp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/wondrouslee/RiderProjects/TavernSimCSharp/TavernSimCSharp/obj/Debug/net8.0/TavernSimCSharp.AssemblyInfoInputs.cache
+/Users/wondrouslee/RiderProjects/TavernSimCSharp/TavernSimCSharp/obj/Debug/net8.0/TavernSimCSharp.AssemblyInfo.cs
+/Users/wondrouslee/RiderProjects/TavernSimCSharp/TavernSimCSharp/obj/Debug/net8.0/TavernSimCSharp.csproj.CoreCompileInputs.cache
+/Users/wondrouslee/RiderProjects/TavernSimCSharp/TavernSimCSharp/bin/Debug/net8.0/TavernSimCSharp
+/Users/wondrouslee/RiderProjects/TavernSimCSharp/TavernSimCSharp/bin/Debug/net8.0/TavernSimCSharp.deps.json
+/Users/wondrouslee/RiderProjects/TavernSimCSharp/TavernSimCSharp/bin/Debug/net8.0/TavernSimCSharp.runtimeconfig.json
+/Users/wondrouslee/RiderProjects/TavernSimCSharp/TavernSimCSharp/bin/Debug/net8.0/TavernSimCSharp.dll
+/Users/wondrouslee/RiderProjects/TavernSimCSharp/TavernSimCSharp/bin/Debug/net8.0/TavernSimCSharp.pdb
+/Users/wondrouslee/RiderProjects/TavernSimCSharp/TavernSimCSharp/obj/Debug/net8.0/TavernSimCSharp.dll
+/Users/wondrouslee/RiderProjects/TavernSimCSharp/TavernSimCSharp/obj/Debug/net8.0/refint/TavernSimCSharp.dll
+/Users/wondrouslee/RiderProjects/TavernSimCSharp/TavernSimCSharp/obj/Debug/net8.0/TavernSimCSharp.pdb
+/Users/wondrouslee/RiderProjects/TavernSimCSharp/TavernSimCSharp/obj/Debug/net8.0/TavernSimCSharp.genruntimeconfig.cache
+/Users/wondrouslee/RiderProjects/TavernSimCSharp/TavernSimCSharp/obj/Debug/net8.0/ref/TavernSimCSharp.dll

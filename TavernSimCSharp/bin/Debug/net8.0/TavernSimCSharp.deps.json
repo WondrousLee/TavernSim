@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "TavernSimCSharp/1.0.0": {
+        "runtime": {
+          "TavernSimCSharp.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TavernSimCSharp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
