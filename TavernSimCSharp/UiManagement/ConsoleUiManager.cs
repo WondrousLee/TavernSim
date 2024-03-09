@@ -1,4 +1,4 @@
-public class ConsoleUiManager : UiManager
+public class ConsoleUiManager : IUiManager
 {
     public ConsoleUiManager () {}
     public void DisplayMessage(String message){

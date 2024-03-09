@@ -4,17 +4,34 @@
 //Will work on it more later
 
 using TavernSimCSharp.UiManagement;
+using TavernSimCSharp.UiManagement.ControlManager;
 
-public class ConsoleMenuManager : MenuManager
+public class ConsoleMenuManager : IMenuManager
 {
     private GameState _gameState = GameState.Instance();
     public ConsoleMenuManager(string[] menuPrompts)
     {
-        int selectIndex = 0;
+        ConsoleControl keyInfo = new ConsoleControl();
+        int selectIndex = 1;
         while (_gameState != null)
         {
             ClearLine(selectIndex, menuPrompts);
             DisplayMenu(selectIndex, menuPrompts);
+            switch (keyInfo.GetKey())
+            {
+                //Math max so that index will not go through max or min value.
+                case ConsoleKey.UpArrow:
+                    selectIndex = Math.Max(selectIndex - 1, 0);
+                    break;
+                case ConsoleKey.DownArrow:
+                    selectIndex = Math.Min(selectIndex + 1, menuPrompts.Length);
+                    break;
+                case ConsoleKey.Enter:
+                    Console.WriteLine("Entered");
+                    Console.Clear();
+                    _gameState = null;
+                    break;
+            }
         }
     }
     //Okay, i know what i should rework here now:
@@ -30,7 +47,7 @@ public class ConsoleMenuManager : MenuManager
 //
 //         String[] menuPrompts = Dialogs.mainMenu.menuSelection.Array();
 //         
-//         while (!endgame)
+//         while (!endgame) //CHANGE WHEN LAST INPUT CHANGED?
 //         {
 //             ClearLine(selectIndex, menuPrompts);
 //             DisplayMenu(selectIndex, menuPrompts);
@@ -63,7 +80,7 @@ public class ConsoleMenuManager : MenuManager
 //                     else if (selectIndex == 2){
 //                         endgame = true;
 //                     }
-//
+//                     
 //                     break;
 //             }
 //         }

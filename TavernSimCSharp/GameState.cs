@@ -7,7 +7,7 @@ public sealed class GameState
     private static GameState INSTANCE;
     private GameState() {}
     
-    public UiManager gsUiManager = new ConsoleUiManager();
+    public IUiManager gsUiManager = new ConsoleUiManager();
     public static GameState Instance()
     {
         if (INSTANCE == null)
