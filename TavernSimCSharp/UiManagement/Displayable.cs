@@ -27,9 +27,6 @@ public class Displayable
             }
         }
     }
-    //Dunno if it's the best thing i could come up with but oh well...
-    //Ill try to use it in home.
-
     public void Display()
     {
         //That is intresting stuff, using makes StringReader disposed after
@@ -39,10 +36,7 @@ public class Displayable
             gameState.gsUiManager.DisplayMessage(reader.ReadToEnd());
         }
     }
-
     public string[] Array(){
         return lines;
     }
-
-
 }

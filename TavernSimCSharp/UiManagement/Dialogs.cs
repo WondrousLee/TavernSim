@@ -1,8 +1,6 @@
 public class Dialogs
 {
     GameState gameState = GameState.Instance();
-
-
     public class mainMenu
     {
         public static Displayable headerMenuSelection = new Displayable("\u001bTavern Player UI:\u001b");

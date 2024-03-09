@@ -2,7 +2,7 @@
 
 
 public class DialogSet : Displayable {
-    public String[] dialogLines;
+    private String[] dialogLines;
     private Random random;
 
     public DialogSet(String[] lines){

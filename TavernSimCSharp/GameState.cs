@@ -13,6 +13,8 @@ public sealed class GameState
         if (INSTANCE == null)
         {
             Console.Clear(); //Clear Terminal from trash at the beginning of the game.
+            //Thie probably should not be here if i want this project
+            //to be easy to port to engine.
             INSTANCE = new GameState();
         }
         return INSTANCE;

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TavernSimCSharp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fec1fe42dc80d5fc5841cda906f1503af063b62c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ed920dc0ffb66d5904f94316a125b37b43c2df51")]
 [assembly: System.Reflection.AssemblyProductAttribute("TavernSimCSharp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TavernSimCSharp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
