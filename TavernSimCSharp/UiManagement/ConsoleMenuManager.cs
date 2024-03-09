@@ -11,42 +11,10 @@ public class ConsoleMenuManager : MenuManager
     public ConsoleMenuManager(string[] menuPrompts)
     {
         int selectIndex = 0;
-    
         while (_gameState != null)
         {
             ClearLine(selectIndex, menuPrompts);
             DisplayMenu(selectIndex, menuPrompts);
-            _gameState.gsUiManager.GetKeyboardInput();
-            switch (_gameState.gsUiManager.keyInfo)
-            {
-                //Math max so that index will not go through max or min value.
-                case ConsoleKey.UpArrow:
-                    selectIndex = Math.Max(selectIndex - 1, 0);
-                    break;
-    
-                case ConsoleKey.DownArrow:
-                    selectIndex = Math.Min(selectIndex + 1, menuPrompts.Length - 1); //prolly need offset later.
-                    break;
-    
-                case ConsoleKey.Enter:
-                    //logic for selected menu
-                    Console.WriteLine(menuPrompts[selectIndex]);
-    
-                    if (selectIndex == 0)
-                    {
-                        Console.WriteLine("option 1");
-                    }
-                    else if (selectIndex == 1)
-                    {
-                        Console.WriteLine("option 2");
-                    }
-                    else if (selectIndex == 2)
-                    {
-                        _gameState = null;
-                    }
-    
-                    break;
-            }
         }
     }
     //Okay, i know what i should rework here now:
