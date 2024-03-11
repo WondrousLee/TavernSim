@@ -5,7 +5,7 @@ public class DialogSet : Displayable {
     private String[] dialogLines;
     private Random random;
 
-    public DialogSet(String[] lines){
+    public DialogSet(String[] lines) : base(lines){
         dialogLines = lines;
         random = new Random();
     }

@@ -5,27 +5,23 @@ using Microsoft.VisualBasic;
 public class Displayable
 {
     //public String Message;
-    private StringBuilder resultStrings;
+    private StringBuilder resultStrings = new StringBuilder();
 
     private string[] lines;
     private GameState gameState = GameState.Instance();
 
-    public Displayable(String line = null, String[] lines = null)
+    
+    public Displayable(String line)
     {
+        lines = [line];
+        resultStrings.AppendLine(line);
+    }
 
-        resultStrings = new StringBuilder(); //Initialized StringBuilder twice before, now it's perfect.
+    public Displayable(String[] lines)
+    {
         this.lines = lines;
-        if (line != null)
-        {
-            resultStrings.AppendLine(line);
-        }
-        else if (lines != null)
-        {
-            foreach (String stringInLines in lines)
-            {
-                resultStrings.AppendLine(stringInLines);
-            }
-        }
+        foreach (String stringInLines in lines)
+            resultStrings.AppendLine(stringInLines);
     }
     public void Display()
     {

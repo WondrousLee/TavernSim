@@ -15,7 +15,6 @@ public class ConsoleMenuManager : IMenuManager
         int selectIndex = 1;
         while (_gameState != null)
         {
-            ClearLine(selectIndex, menuPrompts);
             DisplayMenu(selectIndex, menuPrompts);
             switch (keyInfo.GetKey())
             {
@@ -24,12 +23,10 @@ public class ConsoleMenuManager : IMenuManager
                     selectIndex = Math.Max(selectIndex - 1, 0);
                     break;
                 case ConsoleKey.DownArrow:
-                    selectIndex = Math.Min(selectIndex + 1, menuPrompts.Length);
+                    selectIndex = Math.Min(selectIndex + 1, menuPrompts.Length - 1);
                     break;
                 case ConsoleKey.Enter:
                     Console.WriteLine("Entered");
-                    Console.Clear();
-                    _gameState = null;
                     break;
             }
         }
@@ -105,9 +102,9 @@ public class ConsoleMenuManager : IMenuManager
     }
     
     //Clear the line!
-    static void ClearLine(int selectIndex, string[] menuPrompts)
-    {
-        Console.SetCursorPosition(0,   selectIndex);
-        Console.Write(new String(' ', menuPrompts[selectIndex].Length));
-    }
+    // static void ClearLine(int selectIndex, string[] menuPrompts)
+    // {
+    //     Console.SetCursorPosition(0,   selectIndex);
+    //     Console.Write(new String(' ', menuPrompts[selectIndex].Length));
+    // }
 }
