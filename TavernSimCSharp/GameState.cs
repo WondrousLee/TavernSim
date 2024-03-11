@@ -1,4 +1,6 @@
 
+using TavernSimCSharp.UiManagement;
+
 public sealed class GameState
 //sealed == read only, prevents other classes from inheriting from it.
 // So other classes wont create their own instance

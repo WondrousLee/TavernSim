@@ -1,2 +1,2 @@
 ﻿
-ConsoleMenuManager consoleMenu = new ConsoleMenuManager(Dialogs.mainMenu.menuSelection.Array());
+    ConsoleMenuManager MenuManager = new ConsoleMenuManager(Dialogs.mainMenu.menuSelection.Array());
