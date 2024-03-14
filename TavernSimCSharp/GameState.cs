@@ -8,8 +8,8 @@ public sealed class GameState
 {
     private static GameState INSTANCE;
     private GameState() {}
-    
-    public IUiManager gsUiManager = new ConsoleUiManager();
+
+    public ConsoleUiManager gsUiManager;
     public static GameState Instance()
     {
         if (INSTANCE == null)

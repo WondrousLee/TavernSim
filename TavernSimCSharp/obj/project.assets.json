@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "/Users/useradmin/.nuget/packages/": {}
+    "/Users/wondrouslee/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/useradmin/GH/ver3/TavernSim/TavernSimCSharp/TavernSimCSharp.csproj",
+      "projectUniqueName": "/Users/wondrouslee/RiderProjects/TavernSim/TavernSimCSharp/TavernSimCSharp.csproj",
       "projectName": "TavernSimCSharp",
-      "projectPath": "/Users/useradmin/GH/ver3/TavernSim/TavernSimCSharp/TavernSimCSharp.csproj",
-      "packagesPath": "/Users/useradmin/.nuget/packages/",
-      "outputPath": "/Users/useradmin/GH/ver3/TavernSim/TavernSimCSharp/obj/",
+      "projectPath": "/Users/wondrouslee/RiderProjects/TavernSim/TavernSimCSharp/TavernSimCSharp.csproj",
+      "packagesPath": "/Users/wondrouslee/.nuget/packages/",
+      "outputPath": "/Users/wondrouslee/RiderProjects/TavernSim/TavernSimCSharp/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/useradmin/.nuget/NuGet/NuGet.Config"
+        "/Users/wondrouslee/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -38,11 +38,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {

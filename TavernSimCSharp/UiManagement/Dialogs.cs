@@ -10,7 +10,5 @@ public class Dialogs
                 "2: Close tavern for the day",
                 "3: End game",
             ]);
-
-
     } //Add rest of the dialogues
 }

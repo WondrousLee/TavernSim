@@ -4,7 +4,7 @@
 using TavernSimCSharp.UiManagement;
 using TavernSimCSharp.UiManagement.ControlManager;
 
-public class ConsoleMenuManager : IMenuManager
+public class ConsoleMenuManager
 {
     private GameState _gameState = GameState.Instance();
     public ConsoleMenuManager(string[] menuPrompts)
